@@ -58,6 +58,7 @@
 <v t="leo.20161209140942.1"><vh>@edit 20161209.md</vh></v>
 <v t="leo.20161216135757.1"><vh>@edit 20161216.md</vh></v>
 <v t="leo.20161223145250.1"><vh>@edit 20161223.md</vh></v>
+<v t="leo.20170106134028.1"><vh>@edit 20170106.md</vh></v>
 </v>
 </v>
 </v>
@@ -220,14 +221,13 @@ import http.server, ssl
 def domake():
     # build directory
     os.chdir("./../")
-    server_address = ('192.168.1.64', 6443)
+    server_address = ('localhost', 6443)
     httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
     httpd.socket = ssl.wrap_socket(httpd.socket,
                                    server_side=True,
                                    certfile='localhost.crt',
                                    keyfile='localhost.key',
                                    ssl_version=ssl.PROTOCOL_TLSv1)
-    print("6443 https server started")
     httpd.serve_forever()
 
 # 利用執行緒執行 https 伺服器
